@@ -1,5 +1,7 @@
 import React from 'react';
 import './product.scss';
+import HeartIcon from '../../assets/images/heart-icon.svg';
+import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
 
 const Product = () => {
   return (
@@ -16,12 +18,17 @@ const Product = () => {
       <p className="product__quantity">Много <span>***</span></p>
       <div className="product__actions">
         <button className="product__button">В корзину</button>
-        <img
+        {/* <HeartFilledIcon
           className="product__icon"
-          src="https://via.placeholder.com/24"
           width="24"
           height="24"
-          alt="Иконка в избранное."
+          aira-label="Иконка в избранное."
+        /> */}
+        <HeartIcon
+          className="product__icon"
+          width="24"
+          height="24"
+          aira-label="Иконка в избранное."
         />
       </div>
       <div className="product__discount">-25%</div>
