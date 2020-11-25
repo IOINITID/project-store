@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Product from '../product/product.jsx';
 import './product-list.scss';
 
@@ -8,9 +8,9 @@ const ProductList = () => {
   return (
     <ul className="product__list">
       {
-        items.map((item, index) => {
+        items.map((item) => {
           return (
-            <li className="product__list-item" key={index}>
+            <li className="product__list-item" key={item}>
               <Product />
             </li>
           );
