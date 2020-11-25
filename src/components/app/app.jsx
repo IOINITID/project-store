@@ -1,10 +1,10 @@
 import React from 'react';
-import ProductList from '../product-list/product-list.jsx';
+import Page from '../page/page.jsx';
 import './app.scss';
 
 const App = () => {
   return (
-    <ProductList />
+    <Page />
   );
 };
 
