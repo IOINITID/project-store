@@ -1,5 +1,6 @@
 import React from 'react';
 import Filter from '../filter/filter.jsx';
+import Pagination from '../pagination/pagination.jsx';
 import ProductList from '../product-list/product-list.jsx';
 import './page.scss';
 
@@ -12,7 +13,7 @@ const Page = () => {
 
       <ProductList />
 
-      {/* Pagination */}
+      <Pagination />
     </div>
   );
 };
