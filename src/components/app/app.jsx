@@ -1,8 +1,10 @@
 import React from 'react';
+import Product from '../product/product.jsx';
+import './app.scss';
 
 const App = () => {
   return (
-    <div>Grocery Store</div>
+    <Product />
   );
 };
 
