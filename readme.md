@@ -1,4 +1,4 @@
-Название: **Project Store**
+Название: **Project Store** [![Build Status](https://travis-ci.com/IOINITID/project-store.svg?branch=master)](https://travis-ci.com/IOINITID/project-store)
 
 ------------
 
