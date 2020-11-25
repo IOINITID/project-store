@@ -2,8 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 202px;
   padding: 15px;
   background: #ffffff;
   border: 1px solid #e7e7e7;
@@ -73,7 +71,10 @@
   cursor: pointer;
 }
 
-.product__icon {}
+.product__icon {
+  width: 24px;
+  height: 24px;
+}
 
 .product__discount {
   position: absolute;

@@ -18,7 +18,7 @@ const Product = () => {
         <button className="product__button">В корзину</button>
         <img
           className="product__icon"
-          src="https://via.placeholder.com/170"
+          src="https://via.placeholder.com/24"
           width="24"
           height="24"
           alt="Иконка в избранное."
