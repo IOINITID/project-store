@@ -9,7 +9,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <LogoIcon className="header__logo" width="184" height="40" aria-label="Логотип Project Store." />
+        <a className="header__logo" href="#">
+          <LogoIcon className="header__logo-icon" width="184" height="40" aria-label="Логотип Project Store." />
+        </a>
         <a className="header__button" href="#">
           <MenuIcon className="header__button-icon" width="16" height="16" aria-label="Иконка меню." />
           Каталог

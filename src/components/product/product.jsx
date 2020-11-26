@@ -5,8 +5,22 @@ import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
 import Quantity from '../quantity/quantity.jsx';
 
 const Product = (props) => {
-  const {name, image, price, quantity, weight, discount} = props;
+  const {id, name, image, price, quantity, weight, discount} = props;
   const isFavourite = false;
+
+  const favouriteIcon = isFavourite ?
+    <HeartFilledIcon
+      className="product__icon"
+      width="24"
+      height="24"
+      aira-label="Иконка в избранное."
+    /> :
+    <HeartIcon
+      className="product__icon"
+      width="24"
+      height="24"
+      aira-label="Иконка в избранное."
+    />;
 
   return (
     <div className="product">
@@ -21,22 +35,8 @@ const Product = (props) => {
       <p className="product__price">{`${price} ₽`}</p>
       <Quantity quantity={quantity} />
       <div className="product__actions">
-        <button className="product__button">В корзину</button>
-        {
-          isFavourite ?
-            <HeartFilledIcon
-              className="product__icon"
-              width="24"
-              height="24"
-              aira-label="Иконка в избранное."
-            /> :
-            <HeartIcon
-              className="product__icon"
-              width="24"
-              height="24"
-              aira-label="Иконка в избранное."
-            />
-        }
+        <button className="product__button" onClick={() => console.log(id)}>В корзину</button>
+        {favouriteIcon}
       </div>
       {
         discount ?

@@ -37,6 +37,7 @@ const ProductList = () => {
           return (
             <li className="product__list-item" key={item.id}>
               <Product
+                id={item.id}
                 name={item.name}
                 image={item.photo}
                 price={item.price}
