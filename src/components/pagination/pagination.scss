@@ -36,17 +36,33 @@
 }
 
 .pagination__prev {
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
   color: #0d1306;
+  text-transform: lowercase;
   text-decoration: none;
 }
 
 .pagination__next {
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
   color: #0d1306;
+  text-transform: lowercase;
   text-decoration: none;
+}
+
+.pagination__icon--prev {
+  margin-right: 6px;
+}
+
+
+.pagination__icon--next {
+  margin-left: 6px;
+  transform: rotate(180deg);
 }
