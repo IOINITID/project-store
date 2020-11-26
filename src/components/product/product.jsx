@@ -2,6 +2,7 @@ import React from 'react';
 import './product.scss';
 import HeartIcon from '../../assets/images/heart-icon.svg';
 import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
+import Quantity from '../quantity/quantity.jsx';
 
 const Product = (props) => {
   const {name, image, price, quantity, weight, discount} = props;
@@ -18,7 +19,7 @@ const Product = (props) => {
       <h3 className="product__title">{name}</h3>
       <p className="product__weight">{`${weight} кг`}</p>
       <p className="product__price">{`${price} ₽`}</p>
-      <p className="product__quantity">Много <span>***</span></p>
+      <Quantity quantity={quantity} />
       <div className="product__actions">
         <button className="product__button">В корзину</button>
         {
