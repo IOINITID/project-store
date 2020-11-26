@@ -7,7 +7,7 @@ const Categories = () => {
       <h3 className="categories__title">Категории</h3>
       <ul className="categories__list">
         <li className="categories__item">
-          <a className="categories__link" href="#">Молоко сгущенное</a>
+          <a className="categories__link categories__link--special" href="#">Молоко сгущенное</a>
         </li>
         <li className="categories__item">
           <a className="categories__link" href="#">Молоко, молочные напитки</a>
@@ -22,21 +22,19 @@ const Categories = () => {
           <a className="categories__link" href="#">Сметана</a>
         </li>
         <li className="categories__item">
-          <a className="categories__link" href="#">
-            Сыры
-          </a>
-          <ul>
-            <li>
-              <a href="#">Козьи, овечьи</a>
+          <a className="categories__link categories__link--special" href="#">Сыры</a>
+          <ul className="categories__list-additional">
+            <li className="categories__item-additional">
+              <a className="categories__link-additional categories__link-additional--active" href="#">Козьи, овечьи</a>
             </li>
-            <li>
-              <a href="#">Мягкие, рассольные, копченые</a>
+            <li className="categories__item-additional">
+              <a className="categories__link-additional" href="#">Мягкие, рассольные, копченые</a>
             </li>
-            <li>
-              <a href="#">Плавленные, творожные</a>
+            <li className="categories__item-additional">
+              <a className="categories__link-additional" href="#">Плавленные, творожные</a>
             </li>
-            <li>
-              <a href="#">С голубой плесенью</a>
+            <li className="categories__item-additional">
+              <a className="categories__link-additional" href="#">С голубой плесенью</a>
             </li>
           </ul>
         </li>
