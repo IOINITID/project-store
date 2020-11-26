@@ -2,6 +2,7 @@ const path = require(`path`);
 const outputPath = path.join(__dirname, `public`);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: `./src/index.js`,
@@ -81,7 +82,13 @@ module.exports = {
       inject: false,
       template: `./src/index.html`,
       filename: `index.html`
-    })
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: "./src/assets/images",
+        to: "./images",
+      }]
+    }),
   ],
   devtool: `source-map`
 };
