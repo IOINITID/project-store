@@ -35,18 +35,24 @@ const Pagination = (props) => {
 
   return (
     <div className="pagination">
-      <a className="pagination__prev" href="#">
-        <ArrowIcon className="pagination__icon pagination__icon--prev" width="9" height="14" />
-        Назад
-      </a>
+
+      {
+        page > 1 ?
+          <a className="pagination__prev" href="#" onClick={() => onSwitchPage(page - 1)}>
+            <ArrowIcon className="pagination__icon pagination__icon--prev" width="9" height="14" />
+            Назад
+          </a> : null
+      }
 
       <ul className="pagination__list">
         {
           pagesQuantity.map((item) => {
+            const isActivePage = page === item;
+
             return (
               <li key={v4()} className="pagination__item">
                 <a
-                  className={`pagination__link ${page === item && `pagination__link--active`}`}
+                  className={`pagination__link ${isActivePage && `pagination__link--active`}`}
                   href="#"
                   onClick={() => onSwitchPage(item)}
                 >
@@ -58,10 +64,15 @@ const Pagination = (props) => {
         }
       </ul>
 
-      <a className="pagination__next" href="#">
-        Вперед
-        <ArrowIcon className="pagination__icon pagination__icon--next" width="9" height="14" />
-      </a>
+      {
+        page < pagesQuantity.length ?
+          <a className="pagination__next" href="#" onClick={() => onSwitchPage(page + 1)}>
+            Вперед
+            <ArrowIcon className="pagination__icon pagination__icon--next" width="9" height="14" />
+          </a>
+          : null
+      }
+
     </div>
   );
 };
