@@ -8,6 +8,16 @@ const Product = (props) => {
   const {id, name, image, price, quantity, weight, discount} = props;
   const isFavourite = false;
 
+  const getKilogramsByGrams = (grams) => {
+    const GRAMS_IN_KILOGRAM = 1000;
+
+    if (grams < 1000) {
+      return `${grams} г`;
+    }
+
+    return `${grams / GRAMS_IN_KILOGRAM} кг`;
+  };
+
   const favouriteIcon = isFavourite ?
     <HeartFilledIcon
       className="product__icon"
@@ -31,7 +41,7 @@ const Product = (props) => {
         alt={`${name}.`}
       />
       <h3 className="product__title">{name}</h3>
-      <p className="product__weight">{`${weight} кг`}</p>
+      <p className="product__weight">{getKilogramsByGrams(weight)}</p>
       <p className="product__price">{`${price} ₽`}</p>
       <Quantity quantity={quantity} />
       <div className="product__actions">

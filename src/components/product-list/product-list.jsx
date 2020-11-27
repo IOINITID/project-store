@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Product from '../product/product.jsx';
 import './product-list.scss';
 import ProjectService from '../../services/projectService.js';
+import {connect} from 'react-redux';
+import {onFetchProductsAction} from '../../actions/index.js';
 
 const projectService = new ProjectService();
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
+const ProductList = (props) => {
+  const {productsData, page, onFetchProducts} = props;
 
   const getProducts = async () => {
     const response = await projectService.getProducts();
 
-    setProducts(response);
+    onFetchProducts(response);
     console.log(response);
   };
 
@@ -32,8 +33,8 @@ const ProductList = () => {
   return (
     <ul className="product__list">
       {
-        products &&
-        sortProductsByPage(products, page).map((item) => {
+        productsData &&
+        sortProductsByPage(productsData, page).map((item) => {
           return (
             <li className="product__list-item" key={item.id}>
               <Product
@@ -53,4 +54,17 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+const mapStateToProps = (state) => {
+  return {
+    productsData: state.productsData,
+    page: state.page
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onFetchProducts: (products) => dispatch(onFetchProductsAction(products))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
