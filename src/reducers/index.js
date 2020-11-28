@@ -11,6 +11,9 @@ const reducer = (state = initialState, action) => {
       return {...state, page: action.payload};
     case `FETCH_PRODUCTS`:
       return {...state, productsData: action.payload};
+    case `SORT_PRODUCTS_BY_PRICE_INCREASE`:
+      const sortedProductsByPriceIncrease = state.productsData.slice().sort((a, b) => a.price - b.price);
+      return {...state, productsData: sortedProductsByPriceIncrease};
     default:
       return state;
   }

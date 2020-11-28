@@ -12,7 +12,15 @@ const onFetchProductsAction = (products) => {
   };
 };
 
+const onSortProductsByPriceIncreaseAction = (filterType) => {
+  return {
+    type: `SORT_PRODUCTS_BY_PRICE_INCREASE`,
+    payload: filterType
+  };
+};
+
 export {
   onSwitchPageAction,
-  onFetchProductsAction
+  onFetchProductsAction,
+  onSortProductsByPriceIncreaseAction
 };
