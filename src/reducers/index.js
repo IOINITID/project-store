@@ -43,6 +43,16 @@ const reducer = (state = initialState, action) => {
       });
 
       return {...state, productsData: productsWithFavorites};
+    case `CART_ADD`:
+      const productsToCart = state.productsData.slice();
+
+      productsToCart.forEach((item) => {
+        if (item.id === action.payload) {
+          item.cart = !item.cart;
+        }
+      });
+
+      return {...state, productsData: productsToCart};
     default:
       return state;
   }

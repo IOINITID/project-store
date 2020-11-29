@@ -48,6 +48,7 @@ const ProductList = (props) => {
                 weight={item.weight}
                 discount={item.discount}
                 favorites={item.favorites}
+                cart={item.cart}
               />
             </li>
           );

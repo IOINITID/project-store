@@ -64,6 +64,14 @@
   cursor: pointer;
 }
 
+.product__button--active {
+  background: #26b04d;
+}
+
+.product__button-icon {
+  margin-right: 4px;
+}
+
 .product__icon {
   width: 24px;
   height: 24px;

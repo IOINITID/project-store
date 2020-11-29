@@ -4,10 +4,11 @@ import HeartIcon from '../../assets/images/heart-icon.svg';
 import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
 import Quantity from '../quantity/quantity.jsx';
 import {connect} from 'react-redux';
-import { onFavoritesAddAction } from '../../actions';
+import { onFavoritesAddAction, onCartAddAction } from '../../actions';
+import CheckIcon from '../../assets/images/check-icon.svg';
 
 const Product = (props) => {
-  const {id, name, image, price, quantity, weight, discount, favorites, onFavoritesAdd} = props;
+  const {id, name, image, price, quantity, weight, discount, favorites, cart, onFavoritesAdd, onCartAdd} = props;
 
   const getKilogramsByGrams = (grams) => {
     const GRAMS_IN_KILOGRAM = 1000;
@@ -46,7 +47,10 @@ const Product = (props) => {
       <p className="product__price">{`${price} ₽`}</p>
       <Quantity quantity={quantity} />
       <div className="product__actions">
-        <button className="product__button" onClick={() => console.log(id)}>В корзину</button>
+        <button className={`product__button ${cart && `product__button--active`}`} onClick={() => onCartAdd(id)}>
+          {cart && <CheckIcon className="product__button-icon" />}
+          В корзину
+        </button>
         <a href="#" onClick={() => onFavoritesAdd(id)}>
           {favoriteIcon}
         </a>
@@ -61,7 +65,8 @@ const Product = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFavoritesAdd: (productId) => dispatch(onFavoritesAddAction(productId))
+    onFavoritesAdd: (productId) => dispatch(onFavoritesAddAction(productId)),
+    onCartAdd: (productId) => dispatch(onCartAddAction(productId))
   };
 };
 

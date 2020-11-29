@@ -8,7 +8,18 @@ import {connect} from 'react-redux';
 
 const Header = (props) => {
   const {productsData} = props;
-  const favoritesProducts = productsData.filter((item) => item.favorites).length;
+  const favoritesProducts = productsData.filter((item) => item.favorites);
+  const cartProducts = productsData.filter((item) => item.cart);
+
+  const getCartProductsPrice = (products) => {
+    let cartProductsPrice = 0;
+
+    products.forEach((item) => {
+      cartProductsPrice += item.price;
+    });
+
+    return cartProductsPrice;
+  };
 
   return (
     <header className="header">
@@ -23,12 +34,12 @@ const Header = (props) => {
         <div className="header__info">
           <div className="header__favourites">
             <HeartFilledIcon className="header__favourites-icon" width="24" height="24" />
-            <span className="header__favourites-count">{favoritesProducts && favoritesProducts}</span>
+            <span className="header__favourites-count">{favoritesProducts.length && favoritesProducts.length}</span>
           </div>
           <div className="header__cart">
             <CartIcon className="header__cart-icon" width="32" height="32" />
-            <span className="header__cart-count">0</span>
-            <span className="header__cart-price">2 550 ₽</span>
+            <span className="header__cart-count">{cartProducts.length && cartProducts.length}</span>
+            <span className="header__cart-price">{cartProducts.length && getCartProductsPrice(cartProducts)} ₽</span>
           </div>
         </div>
       </div>

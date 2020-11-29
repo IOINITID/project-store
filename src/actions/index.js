@@ -26,9 +26,17 @@ const onFavoritesAddAction = (productId) => {
   };
 };
 
+const onCartAddAction = (productId) => {
+  return {
+    type: `CART_ADD`,
+    payload: productId
+  };
+};
+
 export {
   onSwitchPageAction,
   onFetchProductsAction,
   onSortProductsAction,
-  onFavoritesAddAction
+  onFavoritesAddAction,
+  onCartAddAction
 };
