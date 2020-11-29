@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './product.scss';
 import HeartIcon from '../../assets/images/heart-icon.svg';
 import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
 import Quantity from '../quantity/quantity.jsx';
+import {connect} from 'react-redux';
+import { onFavoritesAddAction } from '../../actions';
 
 const Product = (props) => {
-  const {id, name, image, price, quantity, weight, discount} = props;
-  const isFavourite = false;
+  const {id, name, image, price, quantity, weight, discount, favorites, onFavoritesAdd} = props;
 
   const getKilogramsByGrams = (grams) => {
     const GRAMS_IN_KILOGRAM = 1000;
@@ -18,7 +19,7 @@ const Product = (props) => {
     return `${grams / GRAMS_IN_KILOGRAM} кг`;
   };
 
-  const favouriteIcon = isFavourite ?
+  const favoriteIcon = favorites ?
     <HeartFilledIcon
       className="product__icon"
       width="24"
@@ -46,7 +47,9 @@ const Product = (props) => {
       <Quantity quantity={quantity} />
       <div className="product__actions">
         <button className="product__button" onClick={() => console.log(id)}>В корзину</button>
-        {favouriteIcon}
+        <a href="#" onClick={() => onFavoritesAdd(id)}>
+          {favoriteIcon}
+        </a>
       </div>
       {
         discount ?
@@ -56,4 +59,10 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onFavoritesAdd: (productId) => dispatch(onFavoritesAddAction(productId))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Product);

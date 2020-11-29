@@ -12,15 +12,23 @@ const onFetchProductsAction = (products) => {
   };
 };
 
-const onSortProductsByPriceIncreaseAction = (filterType) => {
+const onSortProductsAction = (filterType) => {
   return {
-    type: `SORT_PRODUCTS_BY_PRICE_INCREASE`,
+    type: `SORT_PRODUCTS`,
     payload: filterType
+  };
+};
+
+const onFavoritesAddAction = (productId) => {
+  return {
+    type: `FAVORITES_ADD`,
+    payload: productId
   };
 };
 
 export {
   onSwitchPageAction,
   onFetchProductsAction,
-  onSortProductsByPriceIncreaseAction
+  onSortProductsAction,
+  onFavoritesAddAction
 };

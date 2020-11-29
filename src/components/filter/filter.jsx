@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 import './filter.scss';
+import {connect} from 'react-redux';
+import { onSortProductsAction } from '../../actions';
 
 const filterTypes = [
   {
@@ -17,14 +19,17 @@ const filterTypes = [
   },
 ];
 
-const Filter = () => {
+const Filter = (props) => {
+  const {onSortProducts} = props;
+
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [filterTitle, setFilterTitle] = useState(`По возрастанию цены`);
 
   const closeFilterList = (evt) => {
-    const filterElement = document.querySelector(`.filter--active`);
+    const filterElement = document.querySelector(`.filter`);
 
-    if (filterElement && !filterElement.contains(evt.target)) {
-      setIsFilterOpen(!isFilterOpen);
+    if (isFilterOpen) {
+      setIsFilterOpen(false);
     }
   };
 
@@ -33,16 +38,22 @@ const Filter = () => {
     return () => document.removeEventListener(`click`, closeFilterList);
   }, [isFilterOpen]);
 
+  useEffect(() => {
+    // Restore sort to default
+    onSortProducts();
+  }, []);
+
   return (
     <div className={`filter ${isFilterOpen && `filter--active`}`} onClick={() => setIsFilterOpen(true)}>
-      <p className="filter__title">
-        По возрастанию цены <span className="filter__icon"></span>
-      </p>
+      <p className="filter__title">{filterTitle} <span className="filter__icon"></span></p>
       <ul className="filter__list">
         {
           filterTypes.map((item) => {
             return (
-              <li key={v4()} className="filter__item" onClick={() => console.log(item.type)}>
+              <li key={v4()} className="filter__item" onClick={() => {
+                setFilterTitle(item.title);
+                return onSortProducts(item.type);
+              }}>
                 <a className="filter__link" href="#" data-type={item.type}>{item.title}</a>
               </li>
             );
@@ -53,4 +64,16 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+const mapStateToProps = (state) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSortProducts: (filerType) => dispatch(onSortProductsAction(filerType))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -27,7 +27,9 @@ const ProductList = (props) => {
   };
 
   useEffect(() => {
-    getProducts();
+    if (!productsData.length) {
+      getProducts();
+    }
   }, []);
 
   return (
@@ -45,6 +47,7 @@ const ProductList = (props) => {
                 quantity={item.quantity}
                 weight={item.weight}
                 discount={item.discount}
+                favorites={item.favorites}
               />
             </li>
           );
