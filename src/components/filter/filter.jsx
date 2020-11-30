@@ -33,6 +33,11 @@ const Filter = (props) => {
   };
 
   useEffect(() => {
+    // Restore sort to default
+    onSortProducts(`priceIncrease`);
+  }, []);
+
+  useEffect(() => {
     document.addEventListener(`click`, closeFilterList);
     return () => document.removeEventListener(`click`, closeFilterList);
   }, [isFilterOpen]);
