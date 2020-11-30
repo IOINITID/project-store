@@ -40,7 +40,7 @@ const Filter = (props) => {
 
   useEffect(() => {
     // Restore sort to default
-    onSortProducts();
+    onSortProducts(`priceIncrease`);
   }, []);
 
   return (
@@ -64,16 +64,10 @@ const Filter = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     onSortProducts: (filerType) => dispatch(onSortProductsAction(filerType))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(null, mapDispatchToProps)(Filter);
