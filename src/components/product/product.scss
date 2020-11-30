@@ -16,9 +16,11 @@
 }
 
 .product__title {
+  height: 48px;
   min-height: 48px;
   margin: 0;
   margin-bottom: 8px;
+  overflow: hidden;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
@@ -71,6 +73,7 @@
 
 .product__button-icon {
   margin-right: 4px;
+  opacity: 1;
 }
 
 .product__icon {
@@ -89,6 +92,34 @@
   color: #ffffff;
   background: #000000;
   border-radius: 0 0 0 20px;
+}
+
+.product__icon--active {
+  width: 24px;
+  height: 24px;
+  animation: heart 1s ease-in-out;
+}
+
+@keyframes heart {
+  0% {
+    transform: rotate(45deg);
+  }
+
+  25% {
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    transform: rotate(25deg);
+  }
+
+  75% {
+    transform: rotate(-25deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
 }
 
 @media (max-width: 1024px) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './product.scss';
 import HeartIcon from '../../assets/images/heart-icon.svg';
 import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
@@ -19,6 +19,8 @@ const Product = (props) => {
 
     return `${grams / GRAMS_IN_KILOGRAM} кг`;
   };
+
+  const favoriteElement = useRef();
 
   const favoriteIcon = favorites ?
     <HeartFilledIcon
@@ -48,11 +50,18 @@ const Product = (props) => {
       <p className="product__price">{`${price} ₽`}</p>
       <Quantity quantity={quantity} />
       <div className="product__actions">
-        <button className={`product__button ${cart && `product__button--active`}`} onClick={() => onCartAdd(id)}>
+        <button className={`product__button ${cart && `product__button--active`}`} onClick={(evt) => {
+          evt.preventDefault();
+          onCartAdd(id);
+        }}>
           {cart && <CheckIcon className="product__button-icon" />}
           В корзину
         </button>
-        <a href="#" onClick={() => onFavoritesAdd(id)}>
+        <a className={`product__icon`} ref={favoriteElement} href="#" onClick={(evt) => {
+          evt.preventDefault();
+          favoriteElement.current.className = !favorites ? `product__icon--active` : `product__icon`;
+          onFavoritesAdd(id);
+        }}>
           {favoriteIcon}
         </a>
       </div>
