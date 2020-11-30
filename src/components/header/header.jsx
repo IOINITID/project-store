@@ -5,9 +5,11 @@ import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
 import CartIcon from '../../assets/images/cart-icon.svg';
 import MenuIcon from '../../assets/images/menu-icon.svg';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Header = (props) => {
   const {productsData} = props;
+
   const favoritesProducts = productsData.filter((item) => item.favorites);
   const cartProducts = productsData.filter((item) => item.cart);
 
@@ -53,6 +55,10 @@ const Header = (props) => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  productsData: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state) => {

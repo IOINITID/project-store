@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './categories.scss';
 import ProjectService from '../../services/projectService.js';
-import { getFilteredData } from '../../utils/common.js';
+import {getFilteredData} from '../../utils/common.js';
 
 const projectService = new ProjectService();
 
@@ -25,7 +25,7 @@ const Categories = () => {
         {
           sections &&
           sections.map((item) => {
-            const {id, name, parent, items} = item;
+            const {id, name, items} = item;
             return (
               <li key={id} className="categories__item">
                 <a className={`categories__link ${items.length && `categories__link--special categories__link--active`}`} href="#">
@@ -50,40 +50,6 @@ const Categories = () => {
           })
         }
       </ul>
-      {/* <ul className="categories__list">
-        <li className="categories__item">
-          <a className="categories__link categories__link--special" href="#">Молоко сгущенное</a>
-        </li>
-        <li className="categories__item">
-          <a className="categories__link" href="#">Молоко, молочные напитки</a>
-        </li>
-        <li className="categories__item">
-          <a className="categories__link" href="#">Растительные молочные продукты</a>
-        </li>
-        <li className="categories__item">
-          <a className="categories__link" href="#">Сливочное масло</a>
-        </li>
-        <li className="categories__item">
-          <a className="categories__link" href="#">Сметана</a>
-        </li>
-        <li className="categories__item">
-          <a className="categories__link categories__link--special" href="#">Сыры</a>
-          <ul className="categories__list-additional">
-            <li className="categories__item-additional">
-              <a className="categories__link-additional categories__link-additional--active" href="#">Козьи, овечьи</a>
-            </li>
-            <li className="categories__item-additional">
-              <a className="categories__link-additional" href="#">Мягкие, рассольные, копченые</a>
-            </li>
-            <li className="categories__item-additional">
-              <a className="categories__link-additional" href="#">Плавленные, творожные</a>
-            </li>
-            <li className="categories__item-additional">
-              <a className="categories__link-additional" href="#">С голубой плесенью</a>
-            </li>
-          </ul>
-        </li>
-      </ul> */}
     </div>
   );
 };

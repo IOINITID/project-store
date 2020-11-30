@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect} from 'react';
 import Product from '../product/product.jsx';
 import './product-list.scss';
 import ProjectService from '../../services/projectService.js';
 import {connect} from 'react-redux';
 import {onFetchProductsAction} from '../../actions/index.js';
+import PropTypes from 'prop-types';
 
 const projectService = new ProjectService();
 
@@ -14,7 +15,6 @@ const ProductList = (props) => {
     const response = await projectService.getProducts();
 
     onFetchProducts(response);
-    console.log(response);
   };
 
   const sortProductsByPage = (productItems, pageNumber) => {
@@ -56,6 +56,12 @@ const ProductList = (props) => {
       }
     </ul>
   );
+};
+
+ProductList.propTypes = {
+  productsData: PropTypes.array.isRequired,
+  page: PropTypes.number.isRequired,
+  onFetchProducts: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

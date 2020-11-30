@@ -1,5 +1,6 @@
 import React from 'react';
 import './quantity.scss';
+import PropTypes from 'prop-types';
 
 const Quantity = (props) => {
   const {quantity} = props;
@@ -37,6 +38,10 @@ const Quantity = (props) => {
       </ul>
     </div>
   );
+};
+
+Quantity.propTypes = {
+  quantity: PropTypes.number.isRequired,
 };
 
 export default Quantity;

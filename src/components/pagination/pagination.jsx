@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './pagination.scss';
 import ArrowIcon from '../../assets/images/arrow-icon.svg';
 import {connect} from 'react-redux';
-import { onSwitchPageAction } from '../../actions';
-import { v4 } from 'uuid';
+import {onSwitchPageAction} from '../../actions';
+import {v4} from 'uuid';
+import PropTypes from 'prop-types';
 
 const Pagination = (props) => {
   const {page, productsData, onSwitchPage} = props;
@@ -75,6 +76,12 @@ const Pagination = (props) => {
 
     </div>
   );
+};
+
+Pagination.propTypes = {
+  page: PropTypes.number.isRequired,
+  productsData: PropTypes.array.isRequired,
+  onSwitchPage: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {

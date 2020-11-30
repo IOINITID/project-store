@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useRef} from 'react';
 import './product.scss';
 import HeartIcon from '../../assets/images/heart-icon.svg';
 import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
 import Quantity from '../quantity/quantity.jsx';
 import {connect} from 'react-redux';
-import { onFavoritesAddAction, onCartAddAction } from '../../actions';
+import {onFavoritesAddAction, onCartAddAction} from '../../actions';
 import CheckIcon from '../../assets/images/check-icon.svg';
+import PropTypes from 'prop-types';
 
 const Product = (props) => {
   const {id, name, image, price, quantity, weight, discount, favorites, cart, onFavoritesAdd, onCartAdd} = props;
@@ -71,6 +72,20 @@ const Product = (props) => {
       }
     </div>
   );
+};
+
+Product.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
+  weight: PropTypes.number.isRequired,
+  discount: PropTypes.number.isRequired,
+  favorites: PropTypes.bool,
+  cart: PropTypes.bool,
+  onFavoritesAdd: PropTypes.func.isRequired,
+  onCartAdd: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => {

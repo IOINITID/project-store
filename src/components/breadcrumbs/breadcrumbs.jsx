@@ -1,19 +1,26 @@
 import React from 'react';
+import {v4} from 'uuid';
 import './breadcrumbs.scss';
 
 const Breadcrumbs = () => {
+  const breadcrumbItems = [
+    `Молоко, сыр, яйцо`,
+    `Сыры молодые`,
+    `Сыры козьи, овечьи`
+  ];
+
   return (
     <div className="breadcrumbs container">
       <ul className="breadcrumbs__list">
-        <li className="breadcrumbs__item">
-          <a className="breadcrumbs__link" href="#">Молоко, сыр, яйцо</a>
-        </li>
-        <li className="breadcrumbs__item">
-          <a className="breadcrumbs__link" href="#">Сыры молодые</a>
-        </li>
-        <li className="breadcrumbs__item">
-          <a className="breadcrumbs__link" href="#">Сыры козьи, овечьи</a>
-        </li>
+        {
+          breadcrumbItems.map((item) => {
+            return (
+              <li key={v4()} className="breadcrumbs__item">
+                <a className="breadcrumbs__link" href="#">{item}</a>
+              </li>
+            );
+          })
+        }
       </ul>
     </div>
   );

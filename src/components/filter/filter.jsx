@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { v4 } from 'uuid';
+import React, {useEffect, useState} from 'react';
+import {v4} from 'uuid';
 import './filter.scss';
 import {connect} from 'react-redux';
-import { onSortProductsAction } from '../../actions';
+import {onSortProductsAction} from '../../actions';
+import PropTypes from 'prop-types';
 
 const filterTypes = [
   {
@@ -36,11 +37,6 @@ const Filter = (props) => {
     return () => document.removeEventListener(`click`, closeFilterList);
   }, [isFilterOpen]);
 
-  useEffect(() => {
-    // Restore sort to default
-    onSortProducts(`priceIncrease`);
-  }, []);
-
   return (
     <div className={`filter ${isFilterOpen && `filter--active`}`} onClick={() => setIsFilterOpen(true)}>
       <p className="filter__title">{filterTitle} <span className="filter__icon"></span></p>
@@ -60,6 +56,10 @@ const Filter = (props) => {
       </ul>
     </div>
   );
+};
+
+Filter.propTypes = {
+  onSortProducts: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => {
