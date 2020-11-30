@@ -25,9 +25,7 @@ const Filter = (props) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filterTitle, setFilterTitle] = useState(`По возрастанию цены`);
 
-  const closeFilterList = (evt) => {
-    const filterElement = document.querySelector(`.filter`);
-
+  const closeFilterList = () => {
     if (isFilterOpen) {
       setIsFilterOpen(false);
     }

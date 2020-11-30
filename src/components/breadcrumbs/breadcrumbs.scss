@@ -40,3 +40,10 @@
 }
 
 .breadcrumbs__link--active {}
+
+
+@media (max-width: 1024px) {
+  .breadcrumbs__item {
+    margin-bottom: 5px;
+  }
+}

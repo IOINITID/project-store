@@ -11,3 +11,25 @@
   color: #000000;
   letter-spacing: -1px;
 }
+
+.page__wrapper {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .page__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23px;
+    padding: 0 16px;
+  }
+
+  .page__wrapper .header__button {
+    padding: 7px;
+  }
+
+  .page__title {
+    padding: 0 16px;
+  }
+}

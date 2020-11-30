@@ -12,7 +12,6 @@ const Categories = () => {
     const response = await projectService.getSections();
 
     setSections(getFilteredData(response));
-    console.log(getFilteredData(response));
   };
 
   useEffect(() => {

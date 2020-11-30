@@ -110,3 +110,36 @@
   text-align: center;
   color: #000000;
 }
+
+@media (max-width: 1024px) {
+  .header__logo {
+    margin-right: 8px;
+  }
+
+  .header__button {
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+  }
+
+  .header__button--mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+  }
+
+  .header__button--mobile .header__button-icon {
+    margin-right: 0;
+  }
+
+  .header__button--mobile .header__button-icon rect {
+    fill: #000000;
+  }
+
+  .header__favourites {
+    margin-right: 22px;
+  }
+}

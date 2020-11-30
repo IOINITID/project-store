@@ -1,9 +1,10 @@
 .categories {
   display: flex;
   flex-direction: column;
-  max-width: 203px;
+  width: 203px;
+  min-width: 203px;
   height: 100%;
-  // height: 472px;
+  margin-right: 32px;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
 }
@@ -90,4 +91,10 @@
 
 .categories__link-additional--active {
   font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .categories {
+    display: none;
+  }
 }

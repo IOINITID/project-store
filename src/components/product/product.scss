@@ -90,3 +90,16 @@
   background: #000000;
   border-radius: 0 0 0 20px;
 }
+
+@media (max-width: 1024px) {
+  .product {
+    border-radius: 0;
+  }
+
+  .product__image {
+    width: 100%;
+    max-width: 170px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

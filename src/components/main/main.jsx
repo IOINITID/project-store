@@ -8,14 +8,12 @@ import './main.scss';
 const Main = () => {
   return (
     <div className="main">
-      <div className="container">
-        <Breadcrumbs />
-        <div className="main__wrapper">
-          <Categories />
-          <Page />
-        </div>
-        <Pagination />
+      <Breadcrumbs />
+      <div className="main__wrapper container">
+        <Categories />
+        <Page />
       </div>
+      <Pagination />
     </div>
   );
 };

@@ -80,3 +80,11 @@
   color: #000000;
   text-decoration: none;
 }
+
+@media (max-width: 1024px) {
+  .filter {
+    width: 100%;
+    max-width: 205px;
+    margin-bottom: 0;
+  }
+}

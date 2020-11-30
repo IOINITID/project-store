@@ -40,6 +40,7 @@ const Product = (props) => {
         className="product__image"
         src={`images/${image}`}
         width="170" height="170"
+        loading="lazy"
         alt={`${name}.`}
       />
       <h3 className="product__title">{name}</h3>

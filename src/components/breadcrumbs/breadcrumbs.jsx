@@ -3,7 +3,7 @@ import './breadcrumbs.scss';
 
 const Breadcrumbs = () => {
   return (
-    <div className="breadcrumbs">
+    <div className="breadcrumbs container">
       <ul className="breadcrumbs__list">
         <li className="breadcrumbs__item">
           <a className="breadcrumbs__link" href="#">Молоко, сыр, яйцо</a>

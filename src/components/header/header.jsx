@@ -21,16 +21,24 @@ const Header = (props) => {
     return cartProductsPrice;
   };
 
+  const isMobile = window.innerWidth <= 1024;
+
   return (
     <header className="header">
       <div className="container">
         <a className="header__logo" href="#">
           <LogoIcon className="header__logo-icon" width="184" height="40" aria-label="Логотип Project Store." />
         </a>
-        <a className="header__button" href="#">
-          <MenuIcon className="header__button-icon" width="16" height="16" aria-label="Иконка меню." />
-          Каталог
-        </a>
+        {
+          isMobile ?
+            <a className="header__button--mobile" href="#">
+              <MenuIcon className="header__button-icon" width="24" height="24" aria-label="Иконка меню." />
+            </a> :
+            <a className="header__button" href="#">
+              <MenuIcon className="header__button-icon" width="16" height="16" aria-label="Иконка меню." />
+              Каталог
+            </a>
+        }
         <div className="header__info">
           <div className="header__favourites">
             <HeartFilledIcon className="header__favourites-icon" width="24" height="24" />
