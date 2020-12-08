@@ -1,6 +1,6 @@
 import React from 'react';
-import Filter from '../filter/filter';
-import ProductList from '../product-list/product-list';
+import Filter from '../filter/filter.jsx';
+import ProductList from '../product-list/product-list.jsx';
 import './page.scss';
 import CatalogIcon from '../../assets/images/catalog-icon.svg';
 

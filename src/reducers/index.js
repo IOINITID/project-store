@@ -4,7 +4,7 @@ import {
   SORT_PRODUCTS,
   FAVORITES_ADD,
   CART_ADD
-} from '../utils/constants';
+} from '../utils/constants.js';
 
 const initialState = {
   productsData: JSON.parse(window.localStorage.getItem(`productsData`)) || [],

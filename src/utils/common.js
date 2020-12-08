@@ -1,6 +1,6 @@
 const getFilteredData = (data) => {
-  let result: any = [];
-  let parentItem: any = {};
+  let result = [];
+  let parentItem = {};
 
   // Create parent data
   data.forEach((dataItem) => {

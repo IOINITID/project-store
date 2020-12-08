@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import Product from '../product/product';
+import Product from '../product/product.jsx';
 import './product-list.scss';
-import ProjectService from '../../services/projectService';
+import ProjectService from '../../services/projectService.js';
 import {connect} from 'react-redux';
-import {onFetchProductsAction} from '../../actions/index';
+import {onFetchProductsAction} from '../../actions/index.js';
 import PropTypes from 'prop-types';
 
 const projectService = new ProjectService();

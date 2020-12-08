@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './store/index';
+import store from './store/index.js';
 import {Provider} from 'react-redux';
-import App from './components/app/app';
+import App from './components/app/app.jsx';
 
 store.subscribe(() => {
   window.localStorage.setItem(`productsData`, JSON.stringify(store.getState().productsData));
