@@ -1,10 +1,4 @@
-import {
-  SWITCH_PAGE,
-  FETCH_PRODUCTS,
-  SORT_PRODUCTS,
-  FAVORITES_ADD,
-  CART_ADD
-} from '../utils/constants';
+import {Actions} from '../utils/constants';
 
 const initialState = {
   productsData: JSON.parse(window.localStorage.getItem(`productsData`)) || [],
@@ -13,15 +7,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SWITCH_PAGE:
+    case Actions.SWITCH_PAGE:
       return {
         ...state, page: action.payload
       };
-    case FETCH_PRODUCTS:
+    case Actions.FETCH_PRODUCTS:
       return {
         ...state, productsData: action.payload
       };
-    case SORT_PRODUCTS:
+    case Actions.SORT_PRODUCTS:
       let sortedProducts;
 
       switch (action.payload) {
@@ -47,7 +41,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state, productsData: sortedProducts
       };
-    case FAVORITES_ADD:
+    case Actions.FAVORITES_ADD:
       const productsWithFavorites = state.productsData.slice();
 
       productsWithFavorites.forEach((item) => {
@@ -59,7 +53,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state, productsData: productsWithFavorites
       };
-    case CART_ADD:
+    case Actions.CART_ADD:
       const productsToCart = state.productsData.slice();
 
       productsToCart.forEach((item) => {
