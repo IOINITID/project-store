@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
-import Header from '../header/header.jsx';
-import Main from '../main/main.jsx';
+import Header from '../header/header';
+import Main from '../main/main';
 import './app.scss';
 
 const App = () => {

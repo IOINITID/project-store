@@ -1,11 +1,11 @@
 const path = require(`path`);
-const outputPath = path.join(__dirname, `public`);
+const outputPath = path.join(__dirname, `dist`);
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: `./src/index.tsx`,
   output: {
     filename: `scripts/scripts.js`,
     path: outputPath
@@ -23,6 +23,10 @@ module.exports = {
         use: {
           loader: `babel-loader`
         }
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: `ts-loader`
       },
       {
         test: /\.(css|scss)$/,
@@ -75,6 +79,9 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: [`.ts`, `.tsx`, `.js`, `json`]
   },
   plugins: [
     new CleanWebpackPlugin(),

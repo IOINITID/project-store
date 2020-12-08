@@ -1,8 +1,8 @@
 import React from 'react';
-import Breadcrumbs from '../breadcrumbs/breadcrumbs.jsx';
-import Categories from '../categories/categories.jsx';
-import Page from '../page/page.jsx';
-import Pagination from '../pagination/pagination.jsx';
+import Breadcrumbs from '../breadcrumbs/breadcrumbs';
+import Categories from '../categories/categories';
+import Page from '../page/page';
+import Pagination from '../pagination/pagination';
 import './main.scss';
 
 const Main = () => {

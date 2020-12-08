@@ -2,6 +2,9 @@ import productsJSON from './products.json';
 import sectionsJSON from './sections.json';
 
 class ProjectService {
+  private productsData: any;
+  private sectionsData: any;
+
   constructor() {
     this.productsData = productsJSON;
     this.sectionsData = sectionsJSON;

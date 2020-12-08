@@ -1,8 +1,8 @@
-import React, {useRef} from 'react';
+import React, {RefObject, useRef} from 'react';
 import './product.scss';
 import HeartIcon from '../../assets/images/heart-icon.svg';
 import HeartFilledIcon from '../../assets/images/heart-filled-icon.svg';
-import Quantity from '../quantity/quantity.jsx';
+import Quantity from '../quantity/quantity';
 import {connect} from 'react-redux';
 import {onFavoritesAddAction, onCartAddAction} from '../../actions';
 import CheckIcon from '../../assets/images/check-icon.svg';
@@ -21,7 +21,7 @@ const Product = (props) => {
     return `${grams / GRAMS_IN_KILOGRAM} кг`;
   };
 
-  const favoriteElement = useRef();
+  const favoriteElement: RefObject<HTMLAnchorElement> = useRef<HTMLAnchorElement>();
 
   const favoriteIcon = favorites ?
     <HeartFilledIcon

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './categories.scss';
-import ProjectService from '../../services/projectService.js';
-import {getFilteredData} from '../../utils/common.js';
+import ProjectService from '../../services/projectService';
+import {getFilteredData} from '../../utils/common';
 
 const projectService = new ProjectService();
 
